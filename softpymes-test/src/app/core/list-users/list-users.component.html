@@ -1,0 +1,38 @@
+<div class="main-table-users">
+  <h5>Haga click sobre el nombre de los usuarios para ver sus detalles.</h5>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Avatar</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersForTable">
+        <td data-column="ID">{{ user.id }}</td>
+        <td data-column="Nombre" (click)="showUserDetailsModal(user.id, user.first_name, user.last_name, user.email, user.avatar)">
+          {{ user.first_name }}
+        </td>
+        <td data-column="Apellido">{{ user.last_name }}</td>
+        <td data-column="Email">{{ user.email }}</td>
+        <td data-column="Avatar">
+          <img
+            style="width: 25px; height: 25px"
+            src="{{ user.avatar }}"
+            alt=""
+          />
+        </td>
+        <td data-column="Opciones">
+          <div>
+            <button mat-raised-button color="primary" [routerLink]="['/edit-user', user.id]">Editar</button>
+            <button mat-raised-button color="warn" (click)="deleteUserModal(user.id, user.first_name)">Eliminar</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

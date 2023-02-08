@@ -1,0 +1,25 @@
+<div
+  style="
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  "
+>
+  <h3>
+    <b>Nombre: {{ data.user_f_name }} {{ data.user_l_name }}</b>
+  </h3>
+  <h4>Email: {{ data.user_email }}</h4>
+  <h4>Identificación: {{ data.user_id }}</h4>
+  <img
+    src="{{ data.user_avatar }}"
+    alt=""
+    style="
+      width: 150px;
+      height: 150px;
+      box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    "
+  />
+</div>

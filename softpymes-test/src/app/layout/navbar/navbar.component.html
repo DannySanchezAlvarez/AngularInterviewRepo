@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <span class="fill-remaining-space">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      #menuTrigger="matMenuTrigger"
+      (mouseover)="menuTrigger.openMenu()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <span (mouseleave)="menuTrigger.closeMenu()">
+        <button mat-menu-item  (click)="goHome()">
+          <mat-icon>home</mat-icon>
+          <span>Página Principal</span>
+        </button>
+        <button mat-menu-item routerLink="/all-users">
+          <mat-icon>people_outline</mat-icon>
+          <span>Usuarios</span>
+        </button>
+        <button mat-menu-item (click)="logOut()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Salir</span>
+        </button>
+      </span>
+    </mat-menu>
+  </span>
+  <span class="fill-remaining-space">Softpymes Angular Test</span>
+  <div class="user-buttons">
+    <button *ngIf="logged === false" mat-raised-button color="primary" routerLink="/login">Entrar</button>
+    <button *ngIf="logged === false" mat-raised-button color="warn" routerLink="/register">
+      Registrarse
+    </button>
+  </div>
+</mat-toolbar>

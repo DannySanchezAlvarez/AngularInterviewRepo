@@ -1,0 +1,21 @@
+<div class="register-container">
+  <h5>Registrar un usuario.</h5>
+  <form [formGroup]="userForm" (ngSubmit)="register()" class="register-form">
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" formControlName="email" />
+    <span *ngIf="email && email.invalid">Escriba un correo para continuar.</span>
+    <br />
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      formControlName="password"
+    />
+    <span *ngIf="password && password.invalid">Escriba su contraseña para continuar.</span>
+    <br />
+    <div>
+      <button [disabled]="(email && email.invalid) || (password && password.invalid)" type="submit">Registrarse</button>
+    </div>
+  </form>
+</div>
